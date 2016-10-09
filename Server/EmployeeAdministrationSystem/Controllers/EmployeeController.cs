@@ -35,7 +35,7 @@ namespace EmployeeAdministrationSystem.Controllers
             }
         }
 
-        // PUT: api/Employee/5  
+        // PUT: api/Employee/{0}
         public void Put(Employee emp)
         {
             if (ModelState.IsValid)
@@ -43,6 +43,24 @@ namespace EmployeeAdministrationSystem.Controllers
                 db.Entry(emp).State = EntityState.Modified;
                 try
                 {
+                    db.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        // DELETE: api/Employee/{0} 
+        public void Delete(int id)
+        {
+            Employee deleted = db.Employee.Find(id);
+            if (deleted != null)
+            {
+                try
+                {
+                    db.Employee.Remove(deleted);
                     db.SaveChanges();
                 }
                 catch (Exception)

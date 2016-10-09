@@ -2,35 +2,44 @@
     getAll();
 
     function getAll() {
-        var empCall = APIService.getEmps();
+        var empCall = APIService.getEmployees();
         empCall.then(function (d) {
             $scope.employee = d.data;
         }, function (error) {
-            $log.error('Oops! Something went wrong while fetching the data.')
+            $log.error('Something went wrong while fetching the data.')
         })
     }
 
-    $scope.addEmps = function () {
+    $scope.addEmployees = function () {
         var emp = {
             FirstName: $scope.FirstName,
             LastName: $scope.LastName,
             Email: $scope.Email          
         };
-        var addEmps = APIService.addEmployee(emp);
-        addEmps.then(function (d) {
+        var addEmployees = APIService.addEmployee(emp);
+        addEmployees.then(function (d) {
             getAll();
         }, function (error) {
-            console.log('Oops! Something went wrong while saving the data.')
+            console.log('Something went wrong while saving the data.')
         })
     };
 
-    $scope.updEmployee = function (emp, eve) {
-        emp.FirstName = eve.currentTarget.innerText;
-        var upd = APIService.updateEmployee(emp);
-        upd.then(function (d) {
+    $scope.updEmployee = function (employee, event) {
+        employee.FirstName = event.currentTarget.innerText;
+        var update = APIService.updateEmployee(employee);
+        update.then(function (d) {
             getAll();
         }, function (error) {
-            console.log('Oops! Something went wrong while updating the data.')
+            console.log('Something went wrong while updating the data.')
+        })
+    };
+
+    $scope.deleteEmployee = function (subID) {
+        var del = APIService.deleteEmployee(subID);
+        del.then(function (d) {
+            getAll();
+        }, function (error) {
+            console.log('Something went wrong while deleting the data.')
         })
     };
 

@@ -1,5 +1,5 @@
 ﻿app.service("APIService", function ($http) {
-    this.getEmps = function () {
+    this.getEmployees = function () {
         return $http.get("api/Employee")
     }
 
@@ -20,4 +20,15 @@
             url: 'api/Employee'
         });
     }
+
+    this.deleteEmployee = function (empID) {
+        var url = 'api/Employee/' + empID;
+        return $http(
+        {
+            method: 'delete',
+            data: empID,
+            url: url
+        });
+    }
+
 });

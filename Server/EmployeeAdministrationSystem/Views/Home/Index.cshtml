@@ -25,6 +25,7 @@
                     <td ng-blur="updEmployee(emp,$event)" ng-dblclick="makeEditable($event)">{{emp.FirstName}}</td>  
                     <td>{{emp.LastName}}</td>
                     <td>{{emp.Email}}</td>
+                    <td> <input type="button" id="Delete" value="Delete" data-ng-click="deleteEmployee(emp.Id)" /> </td>  
                 </tr>
             </tbody>
         </table>
@@ -32,9 +33,9 @@
             <label for="email">Add Employee</label>
             <input type="text" class="form-control" id="FirstName" placeholder="Enter first name" [required="string" ] data-ng-model="FirstName" />
             <input type="text" class="form-control" id="LastName" placeholder="Enter last name" [required="string" ] data-ng-model="LastName" />
-            <input type="email" class="form-control" id="Email" placeholder="Enter email" [required="string" ] data-ng-model="Email" />
+            <input type="email" class="form-control" id="Email" placeholder="Enter email" [required="string" ] data-ng-model="Email" />           
         </div>
-        <button type="button" class="btn btn-default" data-ng-click="addEmps();">Submit</button>
+        <button type="button" class="btn btn-default" data-ng-click="addEmployees();">Submit</button>
 
     </div>
 </body>
