@@ -9,6 +9,7 @@ namespace EmployeeAdministrationSystem
 {
     public class RouteConfig
     {
+        //TODO delete?
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
