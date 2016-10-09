@@ -12,6 +12,15 @@
 <h2>Employee Administration System</h2>
 <body data-ng-app="APIModule">
     <div id="Emps" ng-controller="APIController">
+        <div class="alert alert-success" ng-show="showSuccessAlert">
+            <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> <strong>Done!</strong> {{successTextAlert}}
+        </div>
+        <div class="alert alert-info" ng-show="showInfoAlert">
+            <button type="button" class="close" data-ng-click="switchBool('showInfoAlert')">×</button> <strong>Info!</strong> {{infoTextAlert}}
+        </div>
+        <div class="alert alert-danger" ng-show="showErrorAlert">
+            <button type="button" class="close" data-ng-click="switchBool('showErrorAlert')">×</button> <strong>Error!</strong> {{errorTextAlert}}
+        </div>
         <table>
             <tr>
                 <th>ID</th>

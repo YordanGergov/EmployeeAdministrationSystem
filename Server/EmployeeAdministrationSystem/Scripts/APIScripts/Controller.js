@@ -5,8 +5,19 @@
         var empCall = APIService.getEmployees();
         empCall.then(function (d) {
             $scope.employee = d.data;
+            $scope.infoTextAlert = "Employees data loading successful";
+            $scope.infoSuccessAlert = true;
+
+            $scope.switchBool = function (value) {
+                $scope[value] = !$scope[value];
+            };
         }, function (error) {
-            $log.error('Something went wrong while fetching the data.')
+            $scope.errorTextAlert = "Employees data loading unsuccessful! Try clicking Administration System on the navigation bar!";
+            $scope.showErrorAlert = true;
+
+            $scope.switchBool = function (value) {
+                $scope[value] = !$scope[value];
+            };
         })
     }
 
@@ -19,8 +30,19 @@
         var addEmployees = APIService.addEmployee(emp);
         addEmployees.then(function (d) {
             getAll();
+            $scope.successTextAlert = "New employee data successfully added!";
+            $scope.showSuccessAlert = true;
+
+            $scope.switchBool = function (value) {
+                $scope[value] = !$scope[value];
+            };
         }, function (error) {
-            console.log('Something went wrong while saving the data.')
+            $scope.errorTextAlert = "New employee data addition unsuccessful!";
+            $scope.showErrorAlert = true;
+
+            $scope.switchBool = function (value) {
+                $scope[value] = !$scope[value];
+            };
         })
     };
 
@@ -29,8 +51,19 @@
         var update = APIService.updateEmployee(employee);
         update.then(function (d) {
             getAll();
+            $scope.successTextAlert = "Employee data successfully edited!";
+            $scope.showSuccessAlert = true;
+
+            $scope.switchBool = function (value) {
+                $scope[value] = !$scope[value];
+            };
         }, function (error) {
-            console.log('Something went wrong while updating the data.')
+            $scope.errorTextAlert = "Employee data editing unsuccessful!";
+            $scope.showErrorAlert = true;
+
+            $scope.switchBool = function (value) {
+                $scope[value] = !$scope[value];
+            };
         })
     };
 
@@ -38,8 +71,19 @@
         var del = APIService.deleteEmployee(subID);
         del.then(function (d) {
             getAll();
+            $scope.successTextAlert = "Employee data successfully deleted!";
+            $scope.showSuccessAlert = true;
+
+            $scope.switchBool = function (value) {
+                $scope[value] = !$scope[value];
+            };
         }, function (error) {
-            console.log('Something went wrong while deleting the data.')
+            $scope.errorTextAlert = "Employee data deletion unsuccessful!";
+            $scope.showErrorAlert = true;
+
+            $scope.switchBool = function (value) {
+                $scope[value] = !$scope[value];
+            };
         })
     };
 
