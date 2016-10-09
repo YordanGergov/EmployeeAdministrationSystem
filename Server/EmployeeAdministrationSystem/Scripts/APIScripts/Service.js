@@ -11,4 +11,13 @@
             url: 'api/Employee'
         });
     }
+
+    this.updateEmployee = function (emp) {
+        return $http(
+        {
+            method: 'put',
+            data: emp,
+            url: 'api/Employee'
+        });
+    }
 });

@@ -2,6 +2,7 @@
 using Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -31,6 +32,23 @@ namespace EmployeeAdministrationSystem.Controllers
             {
                 db.Employee.Add(emp);
                 db.SaveChanges();
+            }
+        }
+
+        // PUT: api/Employee/5  
+        public void Put(Employee emp)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(emp).State = EntityState.Modified;
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
         }
     }

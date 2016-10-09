@@ -23,4 +23,20 @@
             console.log('Oops! Something went wrong while saving the data.')
         })
     };
+
+    $scope.updEmployee = function (emp, eve) {
+        emp.FirstName = eve.currentTarget.innerText;
+        var upd = APIService.updateEmployee(emp);
+        upd.then(function (d) {
+            getAll();
+        }, function (error) {
+            console.log('Oops! Something went wrong while updating the data.')
+        })
+    };
+
+    $scope.makeEditable = function (obj) {
+        obj.target.setAttribute("contenteditable", true);
+        obj.target.focus();
+    };
+
 })

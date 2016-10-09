@@ -22,7 +22,7 @@
             <tbody data-ng-repeat="emp in employee">
                 <tr>
                     <td>{{emp.Id}}</td>
-                    <td>{{emp.FirstName}}</td>
+                    <td ng-blur="updEmployee(emp,$event)" ng-dblclick="makeEditable($event)">{{emp.FirstName}}</td>  
                     <td>{{emp.LastName}}</td>
                     <td>{{emp.Email}}</td>
                 </tr>
