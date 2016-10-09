@@ -9,4 +9,18 @@
             $log.error('Oops! Something went wrong while fetching the data.')
         })
     }
+
+    $scope.addEmps = function () {
+        var emp = {
+            FirstName: $scope.FirstName,
+            LastName: $scope.LastName,
+            Email: $scope.Email          
+        };
+        var addEmps = APIService.addEmployee(emp);
+        addEmps.then(function (d) {
+            getAll();
+        }, function (error) {
+            console.log('Oops! Something went wrong while saving the data.')
+        })
+    };
 })

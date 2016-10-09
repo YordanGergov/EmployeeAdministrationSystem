@@ -9,7 +9,7 @@
         margin: 10px;
     }
 </style>
-<h2>Welcome to Sibeesh Passion's Email List</h2>
+<h2>Employee Administration System</h2>
 <body data-ng-app="APIModule">
     <div id="Emps" ng-controller="APIController">
         <table>
@@ -28,6 +28,14 @@
                 </tr>
             </tbody>
         </table>
+        <div class="form-group">
+            <label for="email">Add Employee</label>
+            <input type="text" class="form-control" id="FirstName" placeholder="Enter first name" [required="string" ] data-ng-model="FirstName" />
+            <input type="text" class="form-control" id="LastName" placeholder="Enter last name" [required="string" ] data-ng-model="LastName" />
+            <input type="email" class="form-control" id="Email" placeholder="Enter email" [required="string" ] data-ng-model="Email" />
+        </div>
+        <button type="button" class="btn btn-default" data-ng-click="addEmps();">Submit</button>
+
     </div>
 </body>
 <script src="~/Scripts/angular.js"></script>
