@@ -37,7 +37,7 @@
                 $scope[value] = !$scope[value];
             };
         }, function (error) {
-            $scope.errorTextAlert = "New employee data addition unsuccessful!";
+            $scope.errorTextAlert = "New employee data addition unsuccessful! Try clicking Administration System on the navigation bar!";
             $scope.showErrorAlert = true;
 
             $scope.switchBool = function (value) {
